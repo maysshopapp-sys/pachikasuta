@@ -70,6 +70,7 @@ h1 { margin-top: 40px; font-size: 48px; line-height: 1.18; letter-spacing: -.01e
 .contents .note + p { margin-top: 16px; }
 /* statement + its screen; the screens alternate right / left on the phone */
 .pair { margin-top: 40px; }
+.can > .pair + .say { margin-top: 56px; }
 .say .note { font-size: 12px; }
 .pair.alt .phone { margin-left: auto; }
 .pair.alt figcaption { text-align: right; }
@@ -99,7 +100,7 @@ footer nav a { color: var(--ink); font-size: 13px; padding: 6px 0; }
   .top { padding: 32px 64px 200px; }
   h1 { font-size: 72px; margin-top: 56px; }
   .lead { font-size: 17px; max-width: 26em; }
-  .hero-phone { position: absolute; top: 240px; right: 96px; width: 300px; margin: 0; }
+  .hero-phone { position: absolute; top: 240px; right: 96px; width: 262px; margin: 0; }
   .can { padding: 150px 64px 0; }
   .can > .say { max-width: 600px; }
   .pair { display: grid; grid-template-columns: 1fr 260px; gap: 0 80px; align-items: center; margin-top: 72px; }
@@ -111,6 +112,7 @@ footer nav a { color: var(--ink); font-size: 13px; padding: 6px 0; }
   .for { padding: 150px 64px 0; }
   .for p { font-size: 32px; max-width: 24em; }
   .for + .can { padding-top: 80px; }
+  .can > .pair + .say { margin-top: 96px; }
   h1.h-long { font-size: 64px; }
   .price { display: grid; grid-template-columns: 1fr 1fr; grid-template-rows: auto auto auto 1fr; gap: 0 80px; padding: 96px 64px 0; }
   .price .keep { align-self: start; }
@@ -136,23 +138,27 @@ footer nav a { color: var(--ink); font-size: 13px; padding: 6px 0; }
   </div>
   <p class="free">アプリは無料でダウンロードできます</p>
 </header>
-<div class="phone hero-phone"><img src="assets/counter.png" alt="カウンター画面" width="1080" height="1920"></div>
+<div class="phone hero-phone"><img src="assets/counter_hero.png" alt="カウンター画面" width="1320" height="2868"></div>
 
 <section class="can">
   <h2 class="label">できること</h2>
-  <p class="say"><b class="zen">打ちたい機種のカウント項目が、ひと目で分かる</b><span>パチカスタ製レイアウトは、機種ごとに数えるボタンと設定差の表がそろっています。</span></p>
-  <p class="say"><b class="zen">数えたあとの、複雑な確率計算はいらない</b><span>回数から確率（1/◯◯）をその場で出し、設定差の表と並べて見られます。</span></p>
-  <p class="say"><b class="zen">計算式は、自由にカスタマイズ</b><span>計算ボタンで、ボタンの回数やG数を足す・引く・掛ける・割るで組み合わせられます。</span></p>
+  <div class="pair">
+    <p class="say"><b class="zen">打ちたい機種のカウント項目が、ひと目で分かる</b><span>パチカスタ製レイアウトは、機種ごとに数えるボタンと設定差の表がそろっています。</span></p>
+    <figure><div class="phone"><img src="assets/counter_monkey.png" alt="機種ごとの数えるボタンが並んだカウンター" width="1320" height="2868"></div>
+      <figcaption>機種ごとの数える項目がそろったカウンター（パチカスタ製レイアウト）</figcaption></figure>
+  </div>
   <div class="pair alt">
     <p class="say"><b class="zen">攻略サイトを見なくても、演出の詳細をアプリ内で確認できる</b><span class="note">パチカスタ製レイアウトの「演出記録ページ（4・5ページ目）」で見られます。演出記録ページはアプリ内課金です（はじめての方は30日間無料）。</span></p>
-    <figure><div class="phone"><img src="assets/ibutton.png" alt="演出の項目の i を押すと出る詳しい説明" width="1080" height="1920"></div>
+    <figure><div class="phone"><img src="assets/ibutton.png" alt="演出の項目の i を押すと出る詳しい説明" width="1320" height="2868"></div>
       <figcaption>i を押すと、その演出の詳しい説明</figcaption></figure>
   </div>
   <div class="pair">
     <p class="say"><b class="zen">どんな演出が出たのか、タップで記録できる</b><span>何G目・どの区間で出たかも残ります。</span></p>
-    <figure><div class="phone"><img src="assets/enshutsu.png" alt="演出タグのページ。押すと時刻とG数つきで記録される" width="1080" height="1920"></div>
+    <figure><div class="phone"><img src="assets/enshutsu.png" alt="演出タグのページ。押すと時刻とG数つきで記録される" width="1320" height="2868"></div>
       <figcaption>演出タグを押すと、時刻とG数つきで記録（パチカスタ製レイアウト）</figcaption></figure>
   </div>
+  <p class="say"><b class="zen">数えたあとの、複雑な確率計算はいらない</b><span>回数から確率（1/◯◯）をその場で出し、設定差の表と並べて見られます。</span></p>
+  <p class="say"><b class="zen">計算式は、自由にカスタマイズ</b><span>計算ボタンで、ボタンの回数やG数を足す・引く・掛ける・割るで組み合わせられます。</span></p>
 </section>
 
 <section class="price">
