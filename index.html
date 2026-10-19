@@ -1,0 +1,195 @@
+<!doctype html>
+<html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>パチカスタ｜パチスロの実戦カウンター</title>
+<meta name="description" content="知らない台を打ちたいけど、設定差をカウントするフォーマットの準備が面倒な方におすすめのパチスロ実戦カウンター。">
+<meta property="og:type" content="website">
+<meta property="og:title" content="パチカスタ｜パチスロの実戦カウンター">
+<meta property="og:description" content="知らない台を打ちたい。でも、数える準備が面倒。そんな方におすすめのパチスロ実戦カウンター。">
+<meta property="og:url" content="https://maysshopapp-sys.github.io/pachikasuta/">
+<meta property="og:image" content="https://maysshopapp-sys.github.io/pachikasuta/assets/ogp.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="assets/icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@900&display=swap" rel="stylesheet">
+<style>
+:root { --bg:#0A0A0B; --ink:#F2F2F4; --sub:#A9A6AC; --gold:#F2C14E; --gold-ink:#1E1600; --green:#7CD992; }
+* { box-sizing: border-box; }
+html, body { overflow-x: clip; }
+body { margin: 0; background: var(--bg); color: var(--ink); font-family: "Hiragino Sans", "Yu Gothic UI", "Meiryo", "Noto Sans JP", sans-serif; line-height: 1.7; font-size: 15px; }
+p, h1, h2, ul { margin: 0; }
+img { display: block; max-width: 100%; height: auto; }
+a:focus-visible { outline: 3px solid var(--gold); outline-offset: 3px; }
+.page { position: relative; max-width: 480px; margin: 0 auto; }
+.zen { font-family: "Zen Kaku Gothic New", "Hiragino Sans", sans-serif; font-weight: 900; word-break: auto-phrase; }
+.label { font-size: 15px; font-weight: 800; }
+
+/* pattern bookends: the field opens the page and closes it; the middle is plain */
+.top { position: relative; padding: 18px 20px 150px; background: url("assets/p2a_top.svg") center top / 100% 100% no-repeat; }
+.brand { display: flex; align-items: center; gap: 8px; font-weight: 800; }
+.brand img { width: 28px; height: 28px; border-radius: 7px; }
+h1 { margin-top: 40px; font-size: 48px; line-height: 1.18; letter-spacing: -.01em; }
+.lead { margin-top: 16px; font-size: 15px; max-width: 18em; }
+/* official badges: same height, at least a quarter of the height around each */
+.stores { display: flex; align-items: center; gap: 26px; margin-top: 22px; }
+.stores a { display: block; line-height: 0; }
+.stores img { height: 48px; width: auto; }
+.stores img.gp { height: 71px; margin: -11.5px -11px; }
+.free { margin-top: 8px; font-size: 13px; color: var(--sub); }
+.phone { padding: 7px; border-radius: 30px; background: #1F2228; box-shadow: 0 30px 60px rgba(0,0,0,.75); }
+.phone img { border-radius: 24px; }
+.hero-phone { position: relative; width: 214px; margin: -120px 22px 0 auto; }
+
+/* A: three statements, the second screen sits on the left (the hero screen was on the right) */
+.can { padding: 64px 20px 0; }
+.can .label { color: var(--gold); }
+.say { margin-top: 18px; }
+.say + .say { margin-top: 24px; }
+.say b { display: block; font-size: 24px; line-height: 1.4; }
+.say span { display: block; margin-top: 4px; font-size: 13px; color: var(--sub); }
+.can .phone { width: 200px; margin-top: 36px; }
+.can figcaption { margin-top: 10px; font-size: 12px; color: var(--sub); }
+
+.price { padding: 72px 20px 0; }
+.price .what { font-weight: 800; font-size: 17px; }
+.price .when { color: var(--gold); font-weight: 800; font-size: 14px; }
+.price .num { margin-top: 6px; color: var(--gold); line-height: 1; }
+.price .num span { font-size: 22px; margin-right: 8px; }
+.price .num strong { font-size: 92px; letter-spacing: -.02em; }
+.price .keep { margin-top: 12px; font-size: 13px; color: var(--sub); }
+
+/* B: what the layouts contain, right under the price */
+.contents { margin-top: 26px; padding-top: 18px; border-top: 1px solid rgba(242,193,78,.45); font-size: 14px; }
+.contents p + p { margin-top: 10px; }
+.contents strong { color: var(--gold); }
+.points { list-style: none; padding-left: 0; padding-right: 0; padding-bottom: 0; display: grid; gap: 14px; }
+.points strong { display: block; font-size: 18px; line-height: 1.4; }
+.points span { display: block; font-size: 13px; color: var(--sub); }
+.contents .big { font-size: 22px; line-height: 1.35; color: var(--ink); }
+.contents .big.second { margin-top: 14px; }
+.contents .note { margin-top: 6px; font-size: 12px; color: var(--sub); }
+.contents .note + p { margin-top: 16px; }
+/* statement + its screen; the screens alternate right / left on the phone */
+.pair { margin-top: 40px; }
+.say .note { font-size: 12px; }
+.pair.alt .phone { margin-left: auto; }
+.pair.alt figcaption { text-align: right; }
+.for { padding: 56px 20px 0; }
+.for .label { color: var(--gold); }
+.for p { margin-top: 10px; font-size: 24px; line-height: 1.45; }
+h1.h-long { font-size: 42px; }
+
+.bottom { margin-top: 56px; padding: 56px 20px 40px; background: url("assets/p2a_bottom.svg") center bottom / 100% 100% no-repeat; }
+.gift .label { color: var(--green); }
+.state { margin-top: 18px; }
+.state + .state { margin-top: 22px; }
+.state b { display: block; font-size: 32px; line-height: 1.25; }
+.state span { display: block; margin-top: 4px; font-size: 13px; color: var(--sub); }
+.fine { margin-top: 22px; font-size: 12px; color: var(--sub); }
+.cta { display: block; margin-top: 26px; padding: 17px; border-radius: 999px; background: var(--gold); color: var(--gold-ink); text-align: center; text-decoration: none; font-weight: 900; font-size: 16px; }
+
+/* F: footer */
+footer { padding: 28px 20px 40px; border-top: 1px solid #2A2B30; font-size: 12px; color: var(--sub); line-height: 1.8; }
+footer p + p { margin-top: 6px; }
+footer nav { display: flex; gap: 20px; margin: 14px 0; }
+footer nav a { color: var(--ink); font-size: 13px; padding: 6px 0; }
+
+/* PC: the same order, spread into two columns */
+@media (min-width: 900px) {
+  .page { max-width: 1080px; }
+  .top { padding: 32px 64px 200px; }
+  h1 { font-size: 72px; margin-top: 56px; }
+  .lead { font-size: 17px; max-width: 26em; }
+  .hero-phone { position: absolute; top: 240px; right: 96px; width: 300px; margin: 0; }
+  .can { padding: 150px 64px 0; }
+  .can > .say { max-width: 600px; }
+  .pair { display: grid; grid-template-columns: 1fr 260px; gap: 0 80px; align-items: center; margin-top: 72px; }
+  .pair figure { margin: 0; }
+  .pair.alt .phone { margin-left: 0; }
+  .pair.alt figcaption { text-align: left; }
+  .can .phone { width: 240px; margin-top: 0; }
+  .say b { font-size: 34px; }
+  .for { padding: 150px 64px 0; }
+  .for p { font-size: 32px; max-width: 24em; }
+  .for + .can { padding-top: 80px; }
+  h1.h-long { font-size: 64px; }
+  .price { display: grid; grid-template-columns: 1fr 1fr; grid-template-rows: auto auto auto 1fr; gap: 0 80px; padding: 96px 64px 0; }
+  .price .keep { align-self: start; }
+  .price > :not(.bside) { grid-column: 1; }
+  .price .bside { grid-column: 2; grid-row: 1 / span 4; align-self: end; }
+  .price .num strong { font-size: 120px; }
+  .contents { margin-top: 0; }
+  .bottom { margin-top: 96px; padding: 80px 64px 64px; display: grid; grid-template-columns: 1fr 1fr; gap: 0 80px; }
+  .bottom .label, .bottom .fine, .bottom .cta { grid-column: 1 / -1; }
+  .bottom .cta { max-width: 360px; }
+  .state + .state { margin-top: 18px; }
+  footer { padding: 32px 64px 48px; }
+}
+</style></head>
+<body><div class="page">
+<header class="top">
+  <div class="brand"><img src="assets/icon.png" alt="" width="28" height="28">パチカスタ</div>
+  <h1 class="zen h-long">知らない台を<br>打ちたい。<br>でも、数える<br>準備が面倒。</h1>
+  <p class="lead">そんな方におすすめのパチスロ実戦カウンター。設定差をカウントするフォーマットは、パチカスタ製レイアウトでそろいます。</p>
+  <div class="stores" id="get">
+    <a href="https://apps.apple.com/jp/app/id6810276634"><img src="https://toolbox.marketingtools.apple.com/api/v2/badges/download-on-the-app-store/black/ja-jp?size=250x83" alt="App Store からダウンロード" height="48"></a>
+    <a href="https://play.google.com/store/apps/details?id=com.nanakeke.pachislot_counter"><img src="https://play.google.com/intl/en_us/badges/static/images/badges/ja_badge_web_generic.png" alt="Google Play で手に入れよう" class="gp"></a>
+  </div>
+  <p class="free">アプリは無料でダウンロードできます</p>
+</header>
+<div class="phone hero-phone"><img src="assets/counter.png" alt="カウンター画面" width="1080" height="1920"></div>
+
+<section class="can">
+  <h2 class="label">できること</h2>
+  <p class="say"><b class="zen">打ちたい機種のカウント項目が、ひと目で分かる</b><span>パチカスタ製レイアウトは、機種ごとに数えるボタンと設定差の表がそろっています。</span></p>
+  <p class="say"><b class="zen">数えたあとの、複雑な確率計算はいらない</b><span>回数から確率（1/◯◯）をその場で出し、設定差の表と並べて見られます。</span></p>
+  <p class="say"><b class="zen">計算式は、自由にカスタマイズ</b><span>計算ボタンで、ボタンの回数やG数を足す・引く・掛ける・割るで組み合わせられます。</span></p>
+  <div class="pair alt">
+    <p class="say"><b class="zen">攻略サイトを見なくても、演出の詳細をアプリ内で確認できる</b><span class="note">パチカスタ製レイアウトの「演出記録ページ（4・5ページ目）」で見られます。演出記録ページはアプリ内課金です（はじめての方は30日間無料）。</span></p>
+    <figure><div class="phone"><img src="assets/ibutton.png" alt="演出の項目の i を押すと出る詳しい説明" width="1080" height="1920"></div>
+      <figcaption>i を押すと、その演出の詳しい説明</figcaption></figure>
+  </div>
+  <div class="pair">
+    <p class="say"><b class="zen">どんな演出が出たのか、タップで記録できる</b><span>何G目・どの区間で出たかも残ります。</span></p>
+    <figure><div class="phone"><img src="assets/enshutsu.png" alt="演出タグのページ。押すと時刻とG数つきで記録される" width="1080" height="1920"></div>
+      <figcaption>演出タグを押すと、時刻とG数つきで記録（パチカスタ製レイアウト）</figcaption></figure>
+  </div>
+</section>
+
+<section class="price">
+  <p class="when">リリース記念価格</p>
+  <p class="what">パチカスタ製レイアウト</p>
+  <p class="num zen"><span>1本</span><strong>¥100</strong></p>
+  <p class="keep">買ったレイアウトは、価格が変わってもずっと使えます。</p>
+  <div class="bside">
+    <div class="contents">
+      <p>いまパチスロ 71機種（2026年10月19日時点）。新台も順次追加し、買ったあとも更新が届きます。</p>
+    </div>
+  </div>
+</section>
+
+<section class="bottom gift">
+  <h2 class="label">はじめての方への特典</h2>
+  <p class="state"><b class="zen">購入権を5本</b><span>好きな機種のレイアウト5本と交換できます</span></p>
+  <p class="state"><b class="zen">30日間、無料</b><span>「モード・状態カスタマイズ」と「演出記録ページ（4・5ページ目）」</span></p>
+  <p class="fine">お一人様1回。無料期間が終わっても、自動で課金されることはありません。</p>
+  <a class="cta" href="#get" id="cta">無料でダウンロード</a>
+</section>
+
+<footer>
+  <p>パチカスタは、遊技機メーカー・パチンコホールとは関係のないアプリです。</p>
+  <p>実戦の記録・集計を行うツールです。遊技の結果を保証するものではありません。</p>
+  <p>18歳以上の方を対象としています。アプリ内に広告とアプリ内課金があります。</p>
+  <nav aria-label="関連ページ"><a href="privacy.html">プライバシーポリシー</a><a href="support.html">サポート</a></nav>
+  <p>Apple、Apple のロゴ、App Store は、米国その他の国や地域で登録された Apple Inc. の商標です。Google Play および Google Play ロゴは Google LLC の商標です。</p>
+  <p>© パチカスタ</p>
+</footer>
+</div>
+<script>
+// The last button goes straight to the store for the visitor's phone; elsewhere it scrolls to the badges.
+(function () {
+  var ua = navigator.userAgent, a = document.getElementById("cta");
+  if (/iPhone|iPad|iPod/.test(ua) || (/Macintosh/.test(ua) && "ontouchend" in document)) a.href = "https://apps.apple.com/jp/app/id6810276634";
+  else if (/Android/.test(ua)) a.href = "https://play.google.com/store/apps/details?id=com.nanakeke.pachislot_counter";
+})();
+</script>
+</body></html>
