@@ -1,7 +1,8 @@
 <!doctype html>
 <html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
-<title>パチカスタ｜パチスロの実戦カウンター</title>
-<meta name="description" content="知らない台を打ちたいけど、設定差をカウントするフォーマットの準備が面倒な方におすすめのパチスロ実戦カウンター。">
+<title>パチカスタ｜パチスロの実戦カウンター・小役カウンター</title>
+<meta name="description" content="小役や演出を数えて、設定差の表と見比べられるパチスロ実戦カウンター（無料・iPhone／Android）。機種ごとに数える項目と設定差の表がそろった「パチカスタ製レイアウト」で、知らない台でもすぐ数えられます。">
+<link rel="canonical" href="https://maysshopapp-sys.github.io/pachikasuta/">
 <meta property="og:type" content="website">
 <meta property="og:title" content="パチカスタ｜パチスロの実戦カウンター">
 <meta property="og:description" content="知らない台を打ちたい。でも、数える準備が面倒。そんな方におすすめのパチスロ実戦カウンター。">
@@ -9,6 +10,7 @@
 <meta property="og:image" content="https://maysshopapp-sys.github.io/pachikasuta/assets/ogp.png">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="assets/icon.png">
+<script type="application/ld+json">[{"@context": "https://schema.org", "@type": "SoftwareApplication", "name": "パチカスタ", "alternateName": "パチスロ実戦カウンター", "applicationCategory": "UtilitiesApplication", "operatingSystem": "iOS, Android", "url": "https://maysshopapp-sys.github.io/pachikasuta/", "image": "https://maysshopapp-sys.github.io/pachikasuta/assets/icon.png", "description": "小役や演出を数えて、設定差の表と見比べられるパチスロ実戦カウンター。", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "JPY"}, "contentRating": "18+", "featureList": ["小役や演出をボタンで数え、回数から確率（1/◯◯）をその場で出す", "機種ごとの数える項目と設定差の表がそろったパチカスタ製レイアウト（1本100円）", "何G目・どの区間で何が起きたかを記録", "スマホを横向きにすると、YouTube の動画の横に数えるボタンが並び、動画を見ながら数えられる", "押した操作はすべて履歴に残り、押し間違いは履歴から1つずつ取り消せる", "実戦ごとの収支をカレンダーで記録・振り返りでき、期間別・機種別の成績も見られる"], "sameAs": ["https://apps.apple.com/jp/app/id6810276634", "https://play.google.com/store/apps/details?id=com.nanakeke.pachislot_counter"]}, {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "パチカスタはどんなアプリですか？", "acceptedAnswer": {"@type": "Answer", "text": "パチスロの実戦で、小役や演出の回数を数えて記録するカウンターアプリです。数えた回数から確率（1/◯◯）をその場で出し、設定差の表と並べて見られます。何G目・どの区間で何が起きたかも残ります。"}}, {"@type": "Question", "name": "無料で使えますか？", "acceptedAnswer": {"@type": "Answer", "text": "アプリは無料でダウンロードして使えます。機種ごとの数える項目と設定差の表がそろった「パチカスタ製レイアウト」は1本100円（リリース記念価格）のアプリ内課金です。アプリ内に広告があり、広告を消す買い切りもあります。"}}, {"@type": "Question", "name": "どの機種に対応していますか？", "acceptedAnswer": {"@type": "Answer", "text": "パチカスタ製レイアウトは、いまパチスロ 71機種（2026年10月19日時点）です。新台も順次追加し、買ったあとも更新が届きます。数えるボタンを自分で組めば、どの機種でも使えます。"}}, {"@type": "Question", "name": "iPhone と Android のどちらで使えますか？", "acceptedAnswer": {"@type": "Answer", "text": "どちらでも使えます。App Store と Google Play からダウンロードできます。"}}, {"@type": "Question", "name": "実戦のデータはどこに保存されますか？", "acceptedAnswer": {"@type": "Answer", "text": "数えた回数や記録は、原則としてお使いの端末の中に保存されます。アカウントの登録はありません。くわしくはプライバシーポリシーをご覧ください。"}}]}]</script>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@900&display=swap" rel="stylesheet">
 <style>
@@ -89,6 +91,14 @@ h1.h-long { font-size: 42px; }
 .fine { margin-top: 22px; font-size: 12px; color: var(--sub); }
 .cta { display: block; margin-top: 26px; padding: 17px; border-radius: 999px; background: var(--gold); color: var(--gold-ink); text-align: center; text-decoration: none; font-weight: 900; font-size: 16px; }
 
+/* E: questions (plain text, for people and for search/AI) */
+.faq { padding: 56px 20px 8px; }
+.faq .label { color: var(--gold); }
+.faq dl { margin: 18px 0 0; }
+.faq dt { font-weight: 800; font-size: 16px; line-height: 1.5; }
+.faq dd { margin: 6px 0 0; font-size: 14px; color: var(--sub); }
+.faq dd + dt { margin-top: 20px; }
+
 /* F: footer */
 footer { padding: 28px 20px 40px; border-top: 1px solid #2A2B30; font-size: 12px; color: var(--sub); line-height: 1.8; }
 footer p + p { margin-top: 6px; }
@@ -125,6 +135,8 @@ footer nav a { color: var(--ink); font-size: 13px; padding: 6px 0; }
   .bottom .label, .bottom .fine, .bottom .cta { grid-column: 1 / -1; }
   .bottom .cta { max-width: 360px; }
   .state + .state { margin-top: 18px; }
+  .faq { padding: 80px 64px 16px; }
+  .faq dl { max-width: 760px; }
   footer { padding: 32px 64px 48px; }
 }
 </style></head>
@@ -180,6 +192,22 @@ footer nav a { color: var(--ink); font-size: 13px; padding: 6px 0; }
   <p class="state"><b class="zen">30日間、無料</b><span>「モード・状態カスタマイズ」と「演出記録ページ（4・5ページ目）」</span></p>
   <p class="fine">お一人様1回。無料期間が終わっても、自動で課金されることはありません。</p>
   <a class="cta" href="#get" id="cta">無料でダウンロード</a>
+</section>
+
+<section class="faq">
+  <h2 class="label">よくある質問</h2>
+  <dl>
+    <dt>パチカスタはどんなアプリですか？</dt>
+    <dd>パチスロの実戦で、小役や演出の回数を数えて記録するカウンターアプリです。数えた回数から確率（1/◯◯）をその場で出し、設定差の表と並べて見られます。何G目・どの区間で何が起きたかも残ります。</dd>
+    <dt>無料で使えますか？</dt>
+    <dd>アプリは無料でダウンロードして使えます。機種ごとの数える項目と設定差の表がそろった「パチカスタ製レイアウト」は1本100円（リリース記念価格）のアプリ内課金です。アプリ内に広告があり、広告を消す買い切りもあります。</dd>
+    <dt>どの機種に対応していますか？</dt>
+    <dd>パチカスタ製レイアウトは、いまパチスロ 71機種（2026年10月19日時点）です。新台も順次追加し、買ったあとも更新が届きます。数えるボタンを自分で組めば、どの機種でも使えます。</dd>
+    <dt>iPhone と Android のどちらで使えますか？</dt>
+    <dd>どちらでも使えます。App Store と Google Play からダウンロードできます。</dd>
+    <dt>実戦のデータはどこに保存されますか？</dt>
+    <dd>数えた回数や記録は、原則としてお使いの端末の中に保存されます。アカウントの登録はありません。くわしくはプライバシーポリシーをご覧ください。</dd>
+  </dl>
 </section>
 
 <footer>
