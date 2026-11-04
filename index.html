@@ -74,6 +74,9 @@ h1 { margin-top: 40px; font-size: 48px; line-height: 1.18; letter-spacing: -.01e
 .can .item .phone { width: 100%; margin-top: 0; }
 .item figure { margin: 0; }
 .item figcaption { margin-top: 8px; font-size: 12px; color: var(--sub); }
+/* the picture under the answer keeps a gap (keke 11/4: the bubble touched the landscape phone; ".item figure"
+   had zeroed the figure's own margin). Same for both answer styles. */
+.item > .say + * { margin-top: 32px; }
 .credit { margin-top: 4px; font-size: 10px; color: var(--sub); }
 .credit a { color: inherit; padding: 8px 0; }
 .solo, .wide { margin-top: 24px; }
