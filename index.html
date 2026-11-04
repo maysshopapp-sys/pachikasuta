@@ -41,7 +41,13 @@ h1 { margin-top: 40px; font-size: 48px; line-height: 1.18; letter-spacing: -.01e
 .free { margin-top: 8px; font-size: 13px; color: var(--sub); }
 .phone { padding: 7px; border-radius: 30px; background: #1F2228; box-shadow: 0 30px 60px rgba(0,0,0,.75); }
 .phone img { border-radius: 24px; }
-.hero-phone { position: relative; width: 214px; margin: -120px 22px 0 auto; }
+.hero3d { position: relative; height: 370px; margin-top: -110px; perspective: 1100px; overflow: hidden; }
+.hero3d .tilt { position: absolute; width: 150px; aspect-ratio: 1320 / 2868; transform-style: preserve-3d; }
+.hero3d .tilt.a { left: 30px; top: 36px; transform: rotateY(28deg) rotateX(9deg) rotateZ(-8deg); }
+.hero3d .tilt.b { right: 30px; top: 14px; transform: rotateY(-24deg) rotateX(9deg) rotateZ(6deg); }
+.hero3d .rim { position: absolute; inset: 0; border-radius: 24px; background: #2B2E35; }
+.hero3d .face { position: absolute; inset: 0; border-radius: 24px; padding: 5px; background: linear-gradient(135deg, #6a6e78, #23262c 35%, #16181c 70%, #4a4d55); box-shadow: 0 24px 44px rgba(0,0,0,.7); }
+.hero3d img { display: block; width: 100%; height: 100%; object-fit: cover; object-position: top; border-radius: 19px; }
 
 /* A: three statements, the second screen sits on the left (the hero screen was on the right) */
 .can { padding: 64px 20px 0; }
@@ -66,6 +72,8 @@ h1 { margin-top: 40px; font-size: 48px; line-height: 1.18; letter-spacing: -.01e
 .can .item .phone { width: 100%; margin-top: 0; }
 .item figure { margin: 0; }
 .item figcaption { margin-top: 8px; font-size: 12px; color: var(--sub); }
+.credit { margin-top: 4px; font-size: 10px; color: var(--sub); }
+.credit a { color: inherit; padding: 8px 0; }
 .solo, .wide { margin-top: 24px; }
 .solo { width: 64%; }
 .solo.alt { margin-left: auto; }
@@ -73,7 +81,7 @@ h1 { margin-top: 40px; font-size: 48px; line-height: 1.18; letter-spacing: -.01e
 .wide .phone { padding: 6px; border-radius: 20px; }
 .wide .phone img { border-radius: 15px; }
 /* K: the counter sits behind, the page you swipe to comes forward and overlaps it */
-.stack { position: relative; margin-top: 24px; height: 0; padding-bottom: 116%; }
+.stack { position: relative; margin-top: 24px; height: 0; padding-bottom: 152%; }
 .stack figure { position: absolute; }
 .stack .back { left: 0; top: 0; width: 44%; opacity: .55; }
 .stack .front { right: 0; top: 8%; width: 62%; }
@@ -174,7 +182,8 @@ footer nav a { color: var(--ink); font-size: 13px; padding: 6px 0; }
   .top { padding: 32px 64px 200px; }
   h1 { font-size: 72px; margin-top: 56px; }
   .lead { font-size: 17px; max-width: 26em; }
-  .hero-phone { position: absolute; top: 240px; right: 96px; width: 262px; margin: 0; }
+  .hero3d { position: absolute; top: 170px; right: 40px; width: 520px; height: 560px; margin: 0; }
+  .hero3d .tilt { width: 226px; }
   .can { padding: 150px 64px 0; }
   .can > .say { max-width: 600px; }
   .pair { display: grid; grid-template-columns: 1fr 260px; gap: 0 80px; align-items: center; margin-top: 72px; }
@@ -217,10 +226,10 @@ footer nav a { color: var(--ink); font-size: 13px; padding: 6px 0; }
   </div>
   <p class="free">アプリは無料でダウンロードできます</p>
 </header>
-<div class="phone hero-phone"><img src="assets/counter_hero.png" alt="カウンター画面" width="1080" height="1984"></div>
+<div class="hero3d"><div class="tilt a"><div class="rim" style="transform:translateZ(-10px)"></div><div class="rim" style="transform:translateZ(-9px)"></div><div class="rim" style="transform:translateZ(-8px)"></div><div class="rim" style="transform:translateZ(-7px)"></div><div class="rim" style="transform:translateZ(-6px)"></div><div class="rim" style="transform:translateZ(-5px)"></div><div class="rim" style="transform:translateZ(-4px)"></div><div class="rim" style="transform:translateZ(-3px)"></div><div class="rim" style="transform:translateZ(-2px)"></div><div class="rim" style="transform:translateZ(-1px)"></div><div class="face"><img src="assets/counter_hero.png" alt="カウンター画面" width="1320" height="2946"></div></div><div class="tilt b"><div class="rim" style="transform:translateZ(-10px)"></div><div class="rim" style="transform:translateZ(-9px)"></div><div class="rim" style="transform:translateZ(-8px)"></div><div class="rim" style="transform:translateZ(-7px)"></div><div class="rim" style="transform:translateZ(-6px)"></div><div class="rim" style="transform:translateZ(-5px)"></div><div class="rim" style="transform:translateZ(-4px)"></div><div class="rim" style="transform:translateZ(-3px)"></div><div class="rim" style="transform:translateZ(-2px)"></div><div class="rim" style="transform:translateZ(-1px)"></div><div class="face"><img src="assets/Z_events.png" alt="イベント記録画面" width="1320" height="2946"></div></div></div>
 
 <section class="ready">
-  <h2 class="zen">数える準備は、もう済んでいます。</h2>
+  <h2 class="zen">数える準備は<br>もう済んでいる</h2>
   <p class="sub">機種を選ぶだけ。数える項目も設定差の表も計算ボタンも、そろった状態で届きます。</p>
   <p class="paid">パチカスタ製レイアウトは有料（1本100円）。<a href="#price">価格と特典を見る</a></p>
   <div class="tally"><div><span>パチスロ</span><b class="zen">84<small>機種</small></b></div></div>
@@ -232,13 +241,13 @@ footer nav a { color: var(--ink); font-size: 13px; padding: 6px 0; }
 
 <section class="can">
   <h2 class="label">打ち始めてからも、こんなこと、ありませんか</h2>
-  <div class="item"><p class="say"><b class="zen">攻略サイトとアプリを何度も往復して切り替えが手間…。</b><span>機種の説明も設定差の表も、カウンターと同じアプリの中。スワイプで行き来できます。</span></p><div class="stack"><figure class="back"><div class="phone"><img src="assets/K_counter.png" alt="カウンター" width="1080" height="1984"></div><figcaption>カウンター</figcaption></figure><figure class="front"><div class="phone"><img src="assets/K_info.png" alt="左へスワイプで「機種の説明」" width="1080" height="1984"></div><figcaption>左へスワイプで「機種の説明」</figcaption></figure></div></div>
-  <div class="item"><p class="say"><b class="zen">動画に集中したいのにカウンターに戻らないといけないのが煩わしい…。</b><span>YouTube から共有して横向きにすると、動画の横に数えるボタンが出ます。</span></p><figure class="wide"><div class="phone"><img src="assets/G_landscape.png" alt="動画つきの横向き画面" width="1920" height="1080"></div><figcaption>動画つきの横向き画面</figcaption></figure></div>
-  <div class="item"><p class="say"><b class="zen">あれ、今カウントしたっけ…？不安だ…。</b><span>押した瞬間に数が変わり、直前の操作が分かります。+1 が飛んで、ボタンが光って、スマホも震えます。</span></p><div class="zoom"><figure class="main"><div class="phone"><img src="assets/A_phone.png" alt="「履歴」で直前の操作" width="1080" height="1984"></div><figcaption>「履歴」で直前の操作</figcaption></figure><figure class="press"><div class="shake"><video id="press" src="assets/A_press.mp4" poster="assets/A_press_poster.png" width="400" height="400" autoplay loop muted playsinline aria-label="押した瞬間。数が増えてボタンが光り、+1 が出る"></video><svg class="buzz l" viewBox="0 0 12 40" aria-hidden="true"><path d="M9 6Q2 20 9 34M3 12Q0 20 3 28"/></svg><svg class="buzz r" viewBox="0 0 12 40" aria-hidden="true"><path d="M3 6Q10 20 3 34M9 12Q12 20 9 28"/></svg></div><figcaption>押した瞬間</figcaption></figure></div></div>
-  <div class="item"><p class="say"><b class="zen">メモは残したのに、帰ってから集計するのが面倒で、そのまま埋もれていく…。</b><span>数えた記録が実戦ごとにそのまま残り、あとから機種別の収支で見返せます。</span></p><figure class="solo alt"><div class="phone"><img src="assets/T_stats.png" alt="機種別の収支" width="1080" height="1984"></div><figcaption>機種別の収支</figcaption></figure></div>
-  <div class="item"><p class="say"><b class="zen">この日の収支の実戦内容はどんなのだったっけ…。</b><span>収支カレンダーの日をタップすると、その日の実戦一覧から個別の実戦（カウント・区間・演出）までたどれます。</span></p><ol class="flow"><li><p class="step">収支カレンダーで日をタップ</p><div class="strip"><img src="assets/U_calendar.png" alt="収支カレンダーで日をタップ" width="1080" height="430"></div></li><li><p class="step">その日の実戦一覧</p><div class="strip"><img src="assets/U_day.png" alt="その日の実戦一覧" width="1080" height="420"></div></li><li><p class="step">個別の実戦の回数と確率</p><div class="strip"><img src="assets/U_detail.png" alt="個別の実戦の回数と確率" width="1080" height="1065"></div></li></ol></div>
-  <div class="item"><p class="say"><b class="zen">換金後に投資を引いて収支を数えてる。</b><span>店を選ぶと交換率と貸出枚数が自動で入り、実戦中に収支が出て、そのまま記録に残ります。</span></p><ol class="flow"><li><p class="step">店を選ぶ</p><div class="strip"><img src="assets/W_pick.png" alt="店を選ぶ" width="1080" height="740"></div></li><li><p class="step">交換率と貸出枚数が入る</p><div class="strip"><img src="assets/W_rate.png" alt="交換率と貸出枚数が入る" width="1080" height="580"></div></li><li><p class="step">実戦中の収支</p><div class="strip"><img src="assets/W_result.png" alt="実戦中の収支" width="1080" height="587"></div></li></ol></div>
-  <div class="item"><p class="say"><b class="zen">見たい数字が、どのカウンターにも無い…。結局、電卓…。</b><span>四則演算と入れ子で、自分だけの計算を作れます。</span></p><ol class="flow"><li><p class="step">計算を組む（BIG+REG ÷ 総G）</p><div class="strip"><img src="assets/V_editor.png" alt="計算を組む（BIG+REG ÷ 総G）" width="1080" height="485"></div></li><li><p class="step">結果がカウンターに出る</p><div class="strip"><img src="assets/V_counter.png" alt="結果がカウンターに出る" width="1080" height="725"></div></li></ol></div>
+  <div class="item"><p class="say"><b class="zen">攻略サイトとアプリを何度も往復して切り替えが手間…</b><span>機種の説明も設定差の表も、カウンターと同じアプリの中。スワイプで行き来できます。</span></p><div class="stack"><figure class="back"><div class="phone"><img src="assets/K_counter.png" alt="カウンター" width="1320" height="2946"></div><figcaption>カウンター</figcaption></figure><figure class="front"><div class="phone"><img src="assets/K_info.png" alt="左へスワイプで「機種の説明」" width="1320" height="2946"></div><figcaption>左へスワイプで「機種の説明」</figcaption></figure></div></div>
+  <div class="item"><p class="say"><b class="zen">動画に集中したいのにカウンターに戻らないといけないのが煩わしい…</b><span>YouTube から共有して横向きにすると、動画の横に数えるボタンが出ます。</span></p><figure class="wide"><div class="phone"><img src="assets/G_landscape.png" alt="動画つきの横向き画面" width="2868" height="1320"></div><figcaption>動画つきの横向き画面</figcaption><p class="credit">動画：Tears of Steel (CC) Blender Foundation | <a href="https://mango.blender.org/">mango.blender.org</a>｜<a href="https://creativecommons.org/licenses/by/3.0/">CC BY 3.0</a>｜切り抜いて使用</p></figure></div>
+  <div class="item"><p class="say"><b class="zen">あれ？今カウントしたっけ？<br>不安だ…</b><span>押した瞬間に数が変わり、直前の操作が分かります。+1 が飛んで、ボタンが光って、バイブでお知らせします。</span></p><div class="zoom"><figure class="main"><div class="phone"><img src="assets/A_phone.png" alt="「履歴」で直前の操作" width="1320" height="2946"></div><figcaption>「履歴」で直前の操作</figcaption></figure><figure class="press"><div class="shake"><video id="press" src="assets/A_press.mp4" poster="assets/A_press_poster.png" width="400" height="400" autoplay loop muted playsinline aria-label="押した瞬間。数が増えてボタンが光り、+1 が出る"></video><svg class="buzz l" viewBox="0 0 12 40" aria-hidden="true"><path d="M9 6Q2 20 9 34M3 12Q0 20 3 28"/></svg><svg class="buzz r" viewBox="0 0 12 40" aria-hidden="true"><path d="M3 6Q10 20 3 34M9 12Q12 20 9 28"/></svg></div><figcaption>押した瞬間</figcaption></figure></div></div>
+  <div class="item"><p class="say"><b class="zen">メモは残したのに、帰ってから集計するのが面倒で、そのまま埋もれていく…</b><span>数えた記録が実戦ごとにそのまま残り、あとから機種別の収支で見返せます。</span></p><figure class="solo alt"><div class="phone"><img src="assets/T_stats.png" alt="機種別の収支" width="1320" height="2946"></div><figcaption>機種別の収支</figcaption></figure></div>
+  <div class="item"><p class="say"><b class="zen">この日の収支の実戦内容はどんなのだったっけ…？</b><span>収支カレンダーの日をタップすると、その日の実戦一覧から個別の実戦（カウント・区間・演出）までたどれます。</span></p><ol class="flow"><li><p class="step">収支カレンダーで日をタップ</p><div class="strip"><img src="assets/U_calendar.png" alt="収支カレンダーで日をタップ" width="1320" height="570"></div></li><li><p class="step">その日の実戦一覧</p><div class="strip"><img src="assets/U_day.png" alt="その日の実戦一覧" width="1320" height="500"></div></li><li><p class="step">個別の実戦の回数と確率</p><div class="strip"><img src="assets/U_detail.png" alt="個別の実戦の回数と確率" width="1320" height="890"></div></li></ol></div>
+  <div class="item"><p class="say"><b class="zen">換金後に投資を引いて収支を数えてる。</b><span>店を選ぶと交換率と貸出枚数が自動で入り、実戦中に収支が出て、そのまま記録に残ります。</span></p><ol class="flow"><li><p class="step">店を選ぶ</p><div class="strip"><img src="assets/W_pick.png" alt="店を選ぶ" width="1320" height="820"></div></li><li><p class="step">交換率と貸出枚数が入る</p><div class="strip"><img src="assets/W_rate.png" alt="交換率と貸出枚数が入る" width="1320" height="640"></div></li><li><p class="step">実戦中の収支</p><div class="strip"><img src="assets/W_result.png" alt="実戦中の収支" width="1320" height="625"></div></li></ol></div>
+  <div class="item"><p class="say"><b class="zen">見たい数字が、どのカウンターにも無い…結局、電卓…</b><span>四則演算と入れ子で、自分だけの計算を作れます。</span></p><ol class="flow"><li><p class="step">計算を組む（BIG+REG ÷ 総G）</p><div class="strip"><img src="assets/V_editor.png" alt="計算を組む（BIG+REG ÷ 総G）" width="1320" height="590"></div></li><li><p class="step">結果がカウンターに出る</p><div class="strip"><img src="assets/V_counter.png" alt="結果がカウンターに出る" width="1320" height="1260"></div></li></ol></div>
 </section>
 
 <section class="price" id="price">
@@ -258,7 +267,7 @@ footer nav a { color: var(--ink); font-size: 13px; padding: 6px 0; }
   <p class="state"><b class="zen">購入権を5本</b><span>好きな機種のレイアウト5本と交換できます</span></p>
   <p class="state"><b class="zen">30日間、無料</b><span>「モード・状態カスタマイズ」と「演出記録ページ（4・5ページ目）」</span></p>
   <p class="fine">お一人様1回。無料期間が終わっても、自動で課金されることはありません。</p>
-  <figure class="solo closeshot"><div class="phone"><img src="assets/Z_events.png" alt="イベント記録と区間バー" width="1080" height="1984"></div><figcaption>イベント記録と区間バー</figcaption></figure>
+  <figure class="solo closeshot"><div class="phone"><img src="assets/Z_events.png" alt="イベント記録と区間バー" width="1320" height="2946"></div><figcaption>イベント記録と区間バー</figcaption></figure>
   <p class="closing zen">数えるだけじゃない。<br>いつ、何の演出を引いたかまで残せるカウンター。</p>
   <a class="cta" href="#get" id="cta">無料でダウンロード</a>
 </section>
